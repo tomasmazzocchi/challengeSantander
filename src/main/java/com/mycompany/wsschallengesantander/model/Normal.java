@@ -1,12 +1,12 @@
 package com.mycompany.wsschallengesantander.model;
 
-public class Admin extends Usuario{
+public class Normal extends Usuario{
 
-    public Admin() {
+    public Normal() {
         super();
     }
 
-    public Admin(String nombre, String apellido, String mail) {
+    public Normal(String nombre, String apellido, String mail) {
         super(nombre, apellido, mail);
     }
     

@@ -8,27 +8,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Meeting {
     private String lugar;
     private Calendar fecha;
-    private int cantidadBirras;
-    private Double temperatura;
-    private Persona admin;
-    private List<Persona> usuarios;
+    private Usuario admin;
+    private List<Usuario> usuarios;
     
     @Autowired
     MetereologiaClient metereologiaClient;
     
-    public void calcularBirrasAComprar() {
-         if(this.getTemperatura() > 24){
-            this.setCantidadBirras((int) Math.ceil((this.getCantidadPersonas() * 3) / 6));
+    public int calcularBirrasAComprar() {
+         if(this.conocerTemperatura() > 24){
+            return (int) Math.ceil((this.getCantidadUsuarios() * 3) / 6);
         } else {
-            this.setCantidadBirras((int) Math.ceil((this.getCantidadPersonas()) / 6));
+            return (int) Math.ceil((this.getCantidadUsuarios()) / 6);
          }
     }
     
-    public void conocerTemperatura() {
-        this.setTemperatura(metereologiaClient.obtenerPronosticoPorDiaYLugar(this.getLugar(), this.getFecha()).getTemp());
+    public Double conocerTemperatura() {
+        return metereologiaClient.obtenerPronosticoPorDiaYLugar(this.getLugar(), this.getFecha()).getTemp();
     }
     
-    public int getCantidadPersonas(){
+    public int getCantidadUsuarios(){
         return this.getUsuarios().size() + 1;
     }
 
@@ -48,36 +46,19 @@ public class Meeting {
         this.fecha = fecha;
     }
 
-    public Persona getAdmin() {
+    public Usuario getAdmin() {
         return admin;
     }
 
-    public void setAdmin(Persona admin) {
+    public void setAdmin(Usuario admin) {
         this.admin = admin;
     }
 
-    public List<Persona> getUsuarios() {
+    public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setUsuarios(List<Persona> usuarios) {
+    public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
-
-    public int getCantidadBirras() {
-        return cantidadBirras;
-    }
-
-    public void setCantidadBirras(int cantidadBirras) {
-        this.cantidadBirras = cantidadBirras;
-    }
-
-    public Double getTemperatura() {
-        return temperatura;
-    }
-
-    public void setTemperatura(Double temperatura) {
-        this.temperatura = temperatura;
-    }
-    
 }

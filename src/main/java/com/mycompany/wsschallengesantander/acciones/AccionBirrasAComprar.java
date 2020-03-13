@@ -2,17 +2,16 @@ package com.mycompany.wsschallengesantander.acciones;
 
 import com.mycompany.wsschallengesantander.model.Meeting;
 
-public class BirrasAComprar implements Accion{
+public class AccionBirrasAComprar implements AccionUsuarioAdmin{
     private Meeting meeting;
 
-    public BirrasAComprar(Meeting meeting) {
+    public AccionBirrasAComprar(Meeting meeting) {
         this.meeting = meeting;
     }
     
     @Override
-    public void ejectuar() {
-        meeting.conocerTemperatura();
-        meeting.calcularBirrasAComprar();
+    public int obtenerBirrasAComprar() {
+        return meeting.calcularBirrasAComprar();
     }
     
 }
