@@ -38,5 +38,7 @@ public abstract class Usuario {
         this.mail = mail;
     }
     
-    
+    public Double conocerTemperatura(Meeting m){
+        return m.conocerTemperatura();
+    }
 }
