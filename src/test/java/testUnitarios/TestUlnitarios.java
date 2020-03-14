@@ -16,7 +16,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -132,6 +132,15 @@ public class TestUlnitarios {
         user3.hacerCheckIn(repoMeetings.getMeetings().get(0));
         
         Assert.assertTrue(systemOutRule.getLog().contains("pepeargento@gmail.com") && systemOutRule.getLog().contains("tomasmazzocchi@gmail.com") && systemOutRule.getLog().contains("moniargento@gmail.com") && systemOutRule.getLog().contains("elenafuseneco@gmail.com"));
+    }
+    
+    @Test
+    public void usuarioNormalSeInscribeEnUnaMeeting() {
+        repoMeetings.getMeetings().add(meet1);
+        UsuarioNormal prueba = new UsuarioNormal("prueba", "incripcion", "pruebainscripcion@gmail.com");
+        prueba.inscribirseEnMeeting(repoMeetings.getMeetings().get(0));
+        
+        Assert.assertTrue(repoMeetings.getMeetings().get(0).getUsuarios().contains(prueba));
     }
 
 }

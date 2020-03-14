@@ -14,4 +14,8 @@ public class UsuarioNormal extends Usuario{
         m.notifyObservers();
     }
     
+    public void inscribirseEnMeeting(Meeting m) {
+        m.agregarInvitado(this);
+    }
+    
 }

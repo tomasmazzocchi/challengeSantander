@@ -6,17 +6,19 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Meeting {
+    
+    @Autowired
+    MetereologiaClient metereologiaClient;
 
     private String lugar;
     private Calendar fecha;
     private UsuarioAdmin admin;
     private List<UsuarioNormal> usuarios;
     private List<Observer> observersList = new ArrayList<>();
-
-    @Autowired
-    MetereologiaClient metereologiaClient;
 
     public int calcularBirrasAComprar() {
         if (this.conocerTemperatura() > 24) {

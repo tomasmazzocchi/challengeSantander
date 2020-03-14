@@ -6,12 +6,10 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
-@Profile(value = "2.16.840.1.113883.2.10.27")
-public final class MetereologiaClient  {
+@Service
+public class MetereologiaClient  {
     
     @Autowired
     RestTemplateRequest restTemplateRequest;
