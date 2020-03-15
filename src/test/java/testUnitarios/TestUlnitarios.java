@@ -6,6 +6,7 @@ import com.mycompany.wsschallengesantander.client.MetereologiaClient;
 import com.mycompany.wsschallengesantander.client.RestTemplateRequest;
 import com.mycompany.wsschallengesantander.client.dtos.MetereologiaDTO;
 import com.mycompany.wsschallengesantander.model.Meeting;
+import com.mycompany.wsschallengesantander.model.Usuario;
 import com.mycompany.wsschallengesantander.model.UsuarioAdmin;
 import com.mycompany.wsschallengesantander.model.UsuarioNormal;
 import com.mycompany.wsschallengesantander.observer.NotificadorMail;
@@ -48,21 +49,48 @@ public class TestUlnitarios {
     RestTemplateRequest restTemplate;
     @Autowired
     MetereologiaClient metereologiaClient;
-    
+
     MockRestServiceServer mockServer;
     ObjectMapper mapper = new ObjectMapper();
-    
+
     RepositoryMeetings repoMeetings = RepositoryMeetings.getInstance();
-    List<UsuarioNormal> usuariosMeetings1 = new ArrayList<>();
+    List<Usuario> usuariosMeetings1 = new ArrayList<>();
     UsuarioAdmin admin1 = new UsuarioAdmin("tomas", "mazzocchi", "tomasmazzocchi@gmail.com");
     UsuarioNormal user1 = new UsuarioNormal("pepe", "argento", "pepeargento@gmail.com");
     UsuarioNormal user2 = new UsuarioNormal("moni", "argento", "moniargento@gmail.com");
     UsuarioNormal user3 = new UsuarioNormal("elena", "fuseneco", "elenafuseneco@gmail.com");
-    Meeting meet1 = new Meeting("Almagro, Buenos Aires", Calendar.getInstance(), admin1, usuariosMeetings1);
+    Meeting meet1 = new Meeting();
 
     @Before
-    public void init() throws URISyntaxException, JsonProcessingException {
+    public void setUp() {
         mockServer = MockRestServiceServer.createServer(restTemplate);
+    }
+
+    @After
+    public void after() {
+        meet1.getUsuarios().clear();
+        usuariosMeetings1.clear();
+    }
+
+    @Test
+    public void obtenerTemperatura() throws URISyntaxException, JsonProcessingException {
+        MetereologiaDTO met = new MetereologiaDTO(21.5, 1013.0, 50.1, 19.7, 24.0);
+        mockServer.expect(requestTo(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day")))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(met))
+                );
+
+        Double temperatura = metereologiaClient.obtenerPronosticoPorDiaYLugar("Almagro, Buenos Aires", Calendar.getInstance()).getTemp();
+
+        mockServer.verify();
+
+        Assert.assertEquals("21.5", temperatura.toString());
+    }
+
+    @Test
+    public void usuarioAdminCalculaPackBirrasAComprarMenos24Grados() throws URISyntaxException, JsonProcessingException {
         MetereologiaDTO met = new MetereologiaDTO(21.5, 1013.0, 50.1, 19.7, 24.0);
         mockServer.expect(ExpectedCount.once(),
                 requestTo(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day")))
@@ -70,50 +98,105 @@ public class TestUlnitarios {
                 .andRespond(withStatus(HttpStatus.OK)
                         .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
                         .body(mapper.writeValueAsString(met))
-                ); 
-        
-    }
-    
-    @After
-    public void after() {
-        meet1.getUsuarios().clear();
-        usuariosMeetings1.clear();
-    }
-    
-    @Test
-    public void obtenerTemperaturaDelDiaMeeting() {
-        repoMeetings.getMeetings().add(meet1);
-        Double temperatura = metereologiaClient.obtenerPronosticoPorDiaYLugar(meet1.getLugar(), meet1.getFecha()).getTemp();
-        
-        Assert.assertEquals("21.5", temperatura.toString());
-    }
+                );
 
-    @Test
-    public void usuarioAdminCalculaBirrasAComprar() {
+        meet1.setAdmin(admin1);
+        meet1.setFecha(Calendar.getInstance());
+        meet1.setLugar("Almagro, Buenos Aires");
         meet1.agregarInvitado(user1);
         meet1.agregarInvitado(user2);
         meet1.agregarInvitado(user3);
-        int cantidadBirras = admin1.birrasAComprar(meet1);
-        
-        Assert.assertEquals(4, cantidadBirras);
+        int cantidadPacksBirras = admin1.birrasAComprar(metereologiaClient.obtenerPronosticoPorDiaYLugar("Almagro, Buenos Aires", Calendar.getInstance()).getTemp(), meet1.getCantidadUsuarios());
+        mockServer.verify();
+
+        Assert.assertEquals(1, cantidadPacksBirras);
     }
-    
+
+    @Test
+    public void usuarioAdminCalculaPackBirrasAComprarMas24GradosYMasDe6Invitados() throws URISyntaxException, JsonProcessingException {
+        MetereologiaDTO met = new MetereologiaDTO(29.0, 1013.0, 50.1, 19.7, 24.0);
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day")))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(met))
+                );
+
+        meet1.setAdmin(admin1);
+        meet1.setFecha(Calendar.getInstance());
+        meet1.setLugar("Almagro, Buenos Aires");
+        meet1.agregarInvitado(user1);
+        meet1.agregarInvitado(user2);
+        meet1.agregarInvitado(user3);
+        meet1.agregarInvitado(user3);
+        meet1.agregarInvitado(user3);
+        meet1.agregarInvitado(user3);
+        int cantidadPacksBirras = admin1.birrasAComprar(metereologiaClient.obtenerPronosticoPorDiaYLugar("Almagro, Buenos Aires", Calendar.getInstance()).getTemp(), meet1.getCantidadUsuarios());
+        mockServer.verify();
+
+        Assert.assertEquals(3, cantidadPacksBirras);
+    }
+
+    @Test
+    public void usuarioAdminAveriguaTemperaturaDeMeeting() throws URISyntaxException, JsonProcessingException {
+        MetereologiaDTO met = new MetereologiaDTO(29.0, 1013.0, 50.1, 19.7, 24.0);
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day")))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(met))
+                );
+
+        meet1.setAdmin(admin1);
+        meet1.setFecha(Calendar.getInstance());
+        meet1.setLugar("Almagro, Buenos Aires");
+        meet1.agregarInvitado(user1);
+        meet1.setTemperatura(metereologiaClient.obtenerPronosticoPorDiaYLugar("Almagro, Buenos Aires", Calendar.getInstance()).getTemp());
+        mockServer.verify();
+
+        Assert.assertEquals(29.0, admin1.conocerTemperatura(meet1), 0.0);
+    }
+
+    @Test
+    public void usuarioNormalAveriguaTemperaturaDeMeeting() throws URISyntaxException, JsonProcessingException {
+        MetereologiaDTO met = new MetereologiaDTO(19.0, 1013.0, 50.1, 19.7, 24.0);
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI("http://dataservice.accuweather.com/forecasts/v1/daily/1day")))
+                .andExpect(method(HttpMethod.GET))
+                .andRespond(withStatus(HttpStatus.OK)
+                        .contentType(org.springframework.http.MediaType.APPLICATION_JSON)
+                        .body(mapper.writeValueAsString(met))
+                );
+
+        meet1.setAdmin(admin1);
+        meet1.setFecha(Calendar.getInstance());
+        meet1.setLugar("Almagro, Buenos Aires");
+        meet1.agregarInvitado(user1);
+        meet1.setTemperatura(metereologiaClient.obtenerPronosticoPorDiaYLugar("Almagro, Buenos Aires", Calendar.getInstance()).getTemp());
+        mockServer.verify();
+
+        Assert.assertEquals(19.0, user1.conocerTemperatura(meet1), 0.0);
+    }
+
     @Rule
     public final SystemOutRule systemOutRule = new SystemOutRule().enableLog();
+
     @Test
-    public void enviarNotificacionMailAUsuarioNormalYAdmin() {
+    public void enviarNotificacionMailAUsuarioYAdmin() {
         usuariosMeetings1.add(user1);
         repoMeetings.getMeetings().add(meet1);
         NotificadorMail observer1 = new NotificadorMail(user1.getMail());
         NotificadorMail observer2 = new NotificadorMail(admin1.getMail());
         repoMeetings.getMeetings().get(0).addObserver(observer1);
         repoMeetings.getMeetings().get(0).addObserver(observer2);
-        
+
         repoMeetings.getMeetings().get(0).notifyObservers();
-        
+
         Assert.assertTrue(systemOutRule.getLog().contains("pepeargento@gmail.com") && systemOutRule.getLog().contains("tomasmazzocchi@gmail.com"));
     }
-    
+
     @Test
     public void usuarioNormalHaceChekInAvisandoQueEstuvoAlli() {
         repoMeetings.getMeetings().add(meet1);
@@ -128,18 +211,18 @@ public class TestUlnitarios {
         repoMeetings.getMeetings().get(0).addObserver(observer2);
         repoMeetings.getMeetings().get(0).addObserver(observer3);
         repoMeetings.getMeetings().get(0).addObserver(observer4);
-        
+
         user3.hacerCheckIn(repoMeetings.getMeetings().get(0));
-        
+
         Assert.assertTrue(systemOutRule.getLog().contains("pepeargento@gmail.com") && systemOutRule.getLog().contains("tomasmazzocchi@gmail.com") && systemOutRule.getLog().contains("moniargento@gmail.com") && systemOutRule.getLog().contains("elenafuseneco@gmail.com"));
     }
-    
+
     @Test
     public void usuarioNormalSeInscribeEnUnaMeeting() {
         repoMeetings.getMeetings().add(meet1);
         UsuarioNormal prueba = new UsuarioNormal("prueba", "incripcion", "pruebainscripcion@gmail.com");
-        prueba.inscribirseEnMeeting(repoMeetings.getMeetings().get(0));
-        
+        prueba.inscribirseEnMeeting(repoMeetings.getMeetings().get(0), prueba);
+
         Assert.assertTrue(repoMeetings.getMeetings().get(0).getUsuarios().contains(prueba));
     }
 

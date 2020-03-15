@@ -1,21 +1,23 @@
 package com.mycompany.wsschallengesantander.model;
 
-public class UsuarioNormal extends Usuario{
+import javax.persistence.Entity;
+
+@Entity
+public class UsuarioNormal extends Usuario {
 
     public UsuarioNormal() {
-        super();
     }
 
     public UsuarioNormal(String nombre, String apellido, String mail) {
         super(nombre, apellido, mail);
     }
-    
+
     public void hacerCheckIn(Meeting m) {
         m.notifyObservers();
     }
-    
-    public void inscribirseEnMeeting(Meeting m) {
-        m.agregarInvitado(this);
+
+    public void inscribirseEnMeeting(Meeting m, Usuario u) {
+        m.agregarInvitado(u);
     }
-    
+
 }
