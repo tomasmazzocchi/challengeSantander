@@ -1,0 +1,578 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?m1ddqu');
+  src:  url('../fonts/icomoon.eot?m1ddqu#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?m1ddqu') format('truetype'),
+    url('../fonts/icomoon.woff?m1ddqu') format('woff'),
+    url('../fonts/icomoon.svg?m1ddqu#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"]:not(.fa):not(.icon-graph), [class*=" icon-"]:not(.fa) {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cierre_de_guardia:before {
+  content: "\e9b7";
+}
+.icon-deshacer:before {
+  content: "\e9ad";
+}
+.icon-ambulatorio:before {
+  content: "\e9ae";
+}
+.icon-guardia:before {
+  content: "\e9af";
+}
+.icon-internacion:before {
+  content: "\e9b0";
+}
+.icon-descargar:before {
+  content: "\e9b2";
+}
+.icon-mover:before {
+  content: "\e9b3";
+}
+.icon-editar1:before {
+  content: "\e9b4";
+}
+.icon-eliminar:before {
+  content: "\e9b5";
+}
+.icon-Enviara-a-epicrisis:before {
+  content: "\e9b6";
+}
+.icon-adulta_intersexual:before {
+  content: "\e9a5";
+}
+.icon-adulto_intersexual:before {
+  content: "\e9a6";
+}
+.icon-beba_intersexual:before {
+  content: "\e9a7";
+}
+.icon-bebe_intersexual:before {
+  content: "\e9a8";
+}
+.icon-chica_intersexual:before {
+  content: "\e9a9";
+}
+.icon-chico__intersexual:before {
+  content: "\e9aa";
+}
+.icon-joven_intersexual:before {
+  content: "\e9ab";
+}
+.icon-jo_joven_intersexual:before {
+  content: "\e9ac";
+}
+.icon-adulta_trans:before {
+  content: "\e99c";
+}
+.icon-adulto_trans:before {
+  content: "\e99d";
+}
+.icon-beba_trans:before {
+  content: "\e99e";
+}
+.icon-bebe_trans:before {
+  content: "\e99f";
+}
+.icon-chica_trans:before {
+  content: "\e9a0";
+}
+.icon-chico_trans:before {
+  content: "\e9a1";
+}
+.icon-jo_joven_trans:before {
+  content: "\e9a2";
+}
+.icon-jo_joven-h_trans:before {
+  content: "\e9a3";
+}
+.icon-indeterminado:before {
+  content: "\e9a4";
+}
+.icon-varon-transexual:before {
+  content: "\e999";
+}
+.icon-mujer-transexual:before {
+  content: "\e99a";
+}
+.icon-indefinido-transexual:before {
+  content: "\e99b";
+}
+.icon-estado_confirmado:before {
+  content: "\e900";
+}
+.icon-tilde:before {
+  content: "\e95e";
+}
+.icon-programadas-12:before {
+  content: "\e901";
+}
+.icon-vacunacion:before {
+  content: "\e902";
+}
+.icon-vacunacion_cancelada:before {
+  content: "\e903";
+}
+.icon-odontologia:before {
+  content: "\e9b1";
+}
+.icon-imagen:before {
+  content: "\e904";
+}
+.icon-pdf:before {
+  content: "\e905";
+}
+.icon-adulta:before {
+  content: "\e906";
+}
+.icon-adulto:before {
+  content: "\e907";
+}
+.icon-actualizar:before {
+  content: "\e908";
+}
+.icon-cirugia:before {
+  content: "\e909";
+}
+.icon-documentos_y_resultados2:before {
+  content: "\e90a";
+}
+.icon-agenda-01:before {
+  content: "\e90b";
+}
+.icon-beba:before {
+  content: "\e90c";
+}
+.icon-bebe:before {
+  content: "\e90d";
+}
+.icon-agregar-2:before {
+  content: "\e90e";
+}
+.icon-agregar:before {
+  content: "\e90f";
+}
+.icon-atras:before {
+  content: "\e910";
+}
+.icon-atras_1:before {
+  content: "\e911";
+}
+.icon-account_circle:before {
+  content: "\e912";
+}
+.icon-telefono:before {
+  content: "\e913";
+}
+.icon-bmi:before {
+  content: "\e914";
+}
+.icon-buscar-paciente:before {
+  content: "\e915";
+}
+.icon-buscar-paciente_1:before {
+  content: "\e916";
+}
+.icon-search:before {
+  content: "\e917";
+}
+.icon-calendar:before {
+  content: "\e918";
+}
+.icon-calendar_1:before {
+  content: "\e919";
+}
+.icon-cambiar-ejes:before {
+  content: "\e91a";
+}
+.icon-chica:before {
+  content: "\e91b";
+}
+.icon-chico:before {
+  content: "\e91c";
+}
+.icon-cerrar:before {
+  content: "\e91d";
+}
+.icon-cerrar_1:before {
+  content: "\e91e";
+}
+.icon-comentario:before {
+  content: "\e91f";
+}
+.icon-editado:before {
+  content: "\e920";
+}
+.icon-embarazada2:before {
+  content: "\e921";
+}
+.icon-check-box-tilde:before {
+  content: "\e922";
+}
+.icon-check-box:before {
+  content: "\e923";
+}
+.icon-home:before {
+  content: "\e924";
+}
+.icon-pausa:before {
+  content: "\e925";
+}
+.icon-configuracion:before {
+  content: "\e926";
+}
+.icon-documento:before {
+  content: "\e927";
+}
+.icon-agregar_circulo:before {
+  content: "\e928";
+}
+.icon-editar:before {
+  content: "\e929";
+}
+.icon-play:before {
+  content: "\e92a";
+}
+.icon-error:before {
+  content: "\e92b";
+}
+.icon-escala-de-delirio:before {
+  content: "\e92c";
+}
+.icon-escala-de-sedacion:before {
+  content: "\e92d";
+}
+.icon-agregar_circulo_outline:before {
+  content: "\e92e";
+}
+.icon-evoluciones:before {
+  content: "\e92f";
+}
+.icon-agregar_sin_fondo:before {
+  content: "\e930";
+}
+.icon-anteojos-01:before {
+  content: "\e931";
+}
+.icon-evoluiones-2:before {
+  content: "\e932";
+}
+.icon-jo_joven-h:before {
+  content: "\e933";
+}
+.icon-jo_joven:before {
+  content: "\e934";
+}
+.icon-fc-cardiaca:before {
+  content: "\e935";
+}
+.icon-fc-pulmonar:before {
+  content: "\e936";
+}
+.icon-glasgow:before {
+  content: "\e937";
+}
+.icon-guardar:before {
+  content: "\e938";
+}
+.icon-bmi-01:before {
+  content: "\e939";
+}
+.icon-hemogluco:before {
+  content: "\e93a";
+}
+.icon-hombre:before {
+  content: "\e93b";
+}
+.icon-id:before {
+  content: "\e93c";
+}
+.icon-imprimir:before {
+  content: "\e93d";
+}
+.icon-indicaciones2:before {
+  content: "\e93e";
+}
+.icon-busqueda-01:before {
+  content: "\e93f";
+}
+.icon-indicaciones_2:before {
+  content: "\e940";
+}
+.icon-info:before {
+  content: "\e941";
+}
+.icon-cobertura:before {
+  content: "\e942";
+}
+.icon-dni:before {
+  content: "\e943";
+}
+.icon-Recurso-2:before {
+  content: "\e944";
+}
+.icon-mensajes:before {
+  content: "\e945";
+}
+.icon-mis-paciente-2:before {
+  content: "\e946";
+}
+.icon-documentos_y_resultados:before {
+  content: "\e947";
+}
+.icon-evolucion:before {
+  content: "\e948";
+}
+.icon-mujer:before {
+  content: "\e949";
+}
+.icon-notificaciones:before {
+  content: "\e94a";
+}
+.icon-numero-de-afiliado:before {
+  content: "\e94b";
+}
+.icon-obra-social:before {
+  content: "\e94c";
+}
+.icon-perimetro-cefalico:before {
+  content: "\e94d";
+}
+.icon-perimetro-de-cintura:before {
+  content: "\e94e";
+}
+.icon-peso:before {
+  content: "\e94f";
+}
+.icon-plan:before {
+  content: "\e950";
+}
+.icon-presion-intracraneal:before {
+  content: "\e951";
+}
+.icon-problema-2:before {
+  content: "\e952";
+}
+.icon-problemas:before {
+  content: "\e953";
+}
+.icon-reloj:before {
+  content: "\e954";
+}
+.icon-reprogramar:before {
+  content: "\e955";
+}
+.icon-resumen-2:before {
+  content: "\e956";
+}
+.icon-resumen:before {
+  content: "\e957";
+}
+.icon-salir:before {
+  content: "\e958";
+}
+.icon-saturacion:before {
+  content: "\e959";
+}
+.icon-signos-vitales:before {
+  content: "\e95a";
+}
+.icon-sumar:before {
+  content: "\e95b";
+}
+.icon-superfice-corporal:before {
+  content: "\e95c";
+}
+.icon-talla:before {
+  content: "\e95d";
+}
+.icon-temperatura-axilar:before {
+  content: "\e95f";
+}
+.icon-presion-media:before {
+  content: "\e960";
+}
+.icon-tension-diastolica:before {
+  content: "\e961";
+}
+.icon-tension-sistolica:before {
+  content: "\e962";
+}
+.icon-Recurso-1:before {
+  content: "\e963";
+}
+.icon-turno-pac:before {
+  content: "\e964";
+}
+.icon-favorito:before {
+  content: "\e965";
+}
+.icon-zoom-in:before {
+  content: "\e966";
+}
+.icon-zoom-out:before {
+  content: "\e967";
+}
+.icon-favorito_outline:before {
+  content: "\e968";
+}
+.icon-impresora:before {
+  content: "\e969";
+}
+.icon-indicaciones:before {
+  content: "\e96a";
+}
+.icon-mas_frecuentes:before {
+  content: "\e96b";
+}
+.icon-mas_horizontal:before {
+  content: "\e96c";
+}
+.icon-mas_vertical:before {
+  content: "\e96d";
+}
+.icon-menos:before {
+  content: "\e96e";
+}
+.icon-mensaje:before {
+  content: "\e96f";
+}
+.icon-mis_pacientes:before {
+  content: "\e970";
+}
+.icon-agenda:before {
+  content: "\e971";
+}
+.icon-reservar_demanda-01:before {
+  content: "\e972";
+}
+.icon-no_farmacologica:before {
+  content: "\e973";
+}
+.icon-interconsulta:before {
+  content: "\e974";
+}
+.icon-ordene_multiples:before {
+  content: "\e975";
+}
+.icon-archivo:before {
+  content: "\e976";
+}
+.icon-carpeta:before {
+  content: "\e977";
+}
+.icon-embarazada:before {
+  content: "\e978";
+}
+.icon-fullscreen:before {
+  content: "\e979";
+}
+.icon-fullsreen_exit:before {
+  content: "\e97a";
+}
+.icon-localizacion:before {
+  content: "\e97b";
+}
+.icon-estrella:before {
+  content: "\e97c";
+}
+.icon-estrella_outline:before {
+  content: "\e97d";
+}
+.icon-orden_lista_flecha:before {
+  content: "\e97e";
+}
+.icon-drop_down_flecha:before {
+  content: "\e97f";
+}
+.icon-drop_up_flecha:before {
+  content: "\e980";
+}
+.icon-colapsar_flecha:before {
+  content: "\e981";
+}
+.icon-expandir_flecha:before {
+  content: "\e982";
+}
+.icon-siguiente:before {
+  content: "\e983";
+}
+.icon-tendencia_abajo:before {
+  content: "\e984";
+}
+.icon-tendencia_arriba:before {
+  content: "\e985";
+}
+.icon-primer_pagina:before {
+  content: "\e986";
+}
+.icon-ultima_pagina:before {
+  content: "\e987";
+}
+.icon-siguientes-01:before {
+  content: "\e988";
+}
+.icon-usuario:before {
+  content: "\e989";
+}
+.icon-peligro:before {
+  content: "\e98a";
+}
+.icon-info_outline:before {
+  content: "\e98b";
+}
+.icon-ayuda:before {
+  content: "\e98c";
+}
+.icon-ayuda_outline:before {
+  content: "\e98d";
+}
+.icon-asociar:before {
+  content: "\e98e";
+}
+.icon-agregar_caja:before {
+  content: "\e98f";
+}
+.icon-cerrar_circulo_outline:before {
+  content: "\e990";
+}
+.icon-radio_button_check:before {
+  content: "\e991";
+}
+.icon-check_circulo:before {
+  content: "\e992";
+}
+.icon-radio_button_uncheck:before {
+  content: "\e993";
+}
+.icon-check_intermedio:before {
+  content: "\e994";
+}
+.icon-error_outline:before {
+  content: "\e995";
+}
+.icon-mensaje_outline:before {
+  content: "\e996";
+}
+.icon-valido:before {
+  content: "\e997";
+}
+.icon-solicitudes:before {
+  content: "\e998";
+}

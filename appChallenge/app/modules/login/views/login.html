@@ -1,0 +1,18 @@
+<div class="text-center"><h3 class="text-light">Ingreso a ZEP</h3>
+    <form name="formulario" ng-model="form" class="form-validation mt-40 ng-pristine ng-valid" novalidate="">
+        <h5 class="text-strong text-left pl-10 ">Usuario</h5> 
+        <div class="form-group ">
+            <input type="text" name="usuario" class="form-control underline-input ng-pristine ng-untouched"  ng-model="form.nombre" required="" placeholder="Quien?"/>
+            <span class="help-block alert alert-lightred" ng-show="formulario.usuario.$dirty && formulario.password.$dirty && formulario.usuario.$invalid">Falta el usuario</span>
+        </div>
+        <h5 class="text-strong text-left pl-10">Clave</h5>
+        <div class="form-group">
+
+            <input type="password" placeholder="Password" name="password" class="form-control underline-input ng-pristine ng-untouched" ng-model="form.clave" required=""/>
+        </div>
+        <span class="help-block alert alert-lightred" ng-show="formulario.password.$dirty && formulario.usuario.$dirty && formulario.password.$invalid">Falta el password</span>
+        <div class="bg-blue dk wrap-reset form-group text-right mt-40">
+            <button type="submit" class="btn btn-white text-black b-0 br-2 mr-5" ng-click="login()" ng-disabled="formulario.$invalid" click-disabler="isRequesting">Login</button>
+        </div>
+    </form>    
+</div>

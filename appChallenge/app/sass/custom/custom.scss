@@ -1,0 +1,132 @@
+.background-login{
+    background-image: url('../images/login.jpg');
+    background-repeat: no-repeat;
+    background-position:center center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fix;
+}
+//div flotante
+.parentFloat{
+    position: absolute;
+    z-index: 1050;
+    padding: 30px 0px 0px;
+    border: 1px solid #51445F;
+    width: 80%;    
+    height: 80%; 
+    min-width: 80%;
+    min-height: 80%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+//cerrar ventanta
+.cerrarVentanaChat , .minimizarVentanaChat{
+    background: #51445f;
+    border: none;
+    padding-top: 5px;
+
+}
+//cabecera de div
+.headerFloat{
+    position: absolute;
+    top: 0px;
+    height: 30px;
+    width: 100%;
+    background: $header-bg;
+    cursor: move;
+}
+//contenedor de div
+.iframeContentProblema{
+    height:100%;
+    border: none;
+    padding: 5px;
+}
+//borde de div
+.cornerFloat{
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
+    background: $header-bg;
+    transform: rotate(90deg);
+    cursor: nwse-resize;
+    border-radius: 5px;
+}
+.arrowfloat{
+    position: fixed;
+    top: 2px;
+    left: 2px;
+}
+.fff{
+    height: 100%;
+    overflow-y: auto;
+}
+
+.tagProblemaEvo{
+    background: #16a085;
+    border-radius: 2px;
+    border-color: $greensea;
+    font-size: 12px;
+    font-family: "Lato", "Arial", sans-serif;
+    color: #ffffff;
+}
+.footerEvo{
+    background-color: transparent;
+    bottom: 17px;
+    position: inherit !important;
+    
+}
+.ocultoContenidoFlotante{
+    height: 0px !important;
+    min-height: 0px !important;
+    padding: 0px !important;
+    max-width: 30% !important;
+    min-width: 30% !important;
+    left: 69% !important;
+    top: 96% !important;
+}
+.rotate180{
+        transform: rotate(180deg);
+}
+.fa-12x {
+  font-size: 12em;
+}
+.fa-14x {
+    font-size: 14em;
+  }
+.fa-7x {
+  font-size: 7em;
+}
+.fa-17x {
+  font-size: 17em;
+}
+.fa-6x {
+  font-size: 6em;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}

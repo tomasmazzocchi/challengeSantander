@@ -1,0 +1,31 @@
+<div id="sidebar">
+    <uib-accordion close-others="oneAtTime" slimscroll="{height: '100%'}">
+
+        <uib-accordion-group is-open="status.isFirstOpen">
+            <uib-accordion-heading>
+                MODULOS <i class="pull-right fa fa-angle-up" ng-class="{'fa-angle-up': parent.status.isFirstOpen, 'fa-angle-down': !parent.status.isFirstOpen}"></i>
+            </uib-accordion-heading>
+            <ul id="navigation" nav-collapse ripple>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.main.zepMain.mesaDeEntrada">
+                        <fa name="book"></fa>
+                        <span>Mesa de Entrada</span>
+                    </a>
+                </li>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.main.zepMain.servicioTecnico">
+                        <fa name="cogs"></fa> 
+                        <span>Servicio Tecnico</span>
+                    </a>
+                </li>
+                <!--     <li ui-sref-active="active">
+                       <a ui-sref="app.main.zepMain.turnos">
+                           <fa name="book"></fa>
+                           <span>Turnos</span>
+                       </a>
+                   </li>-->
+            </ul>
+        </uib-accordion-group>
+    </uib-accordion>
+</div>
+<section ui-view="content-mainZEP" id="content" class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 pr-0" class="overflow-auto" autoscroll="false"></section>

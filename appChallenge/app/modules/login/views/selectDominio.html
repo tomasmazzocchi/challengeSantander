@@ -1,0 +1,8 @@
+<div>
+    <h5 class="text-center text-strong">Seleccione el dominio al que desea ingresar</h5>
+        <ul>
+            <li ng-repeat=" dom in dominios" >
+                <a role="button" ng-click="seleccionarDominio(dom.id, dom.codDominio)">{{ dom.descripcion}}</a>
+            </li>
+        </ul>
+</div>
