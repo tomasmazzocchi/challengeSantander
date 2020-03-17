@@ -1,6 +1,7 @@
 package com.mycompany.wsschallengesantander.config;
 
 
+import com.mycompany.wsschallengesantander.filters.SimpleCorsFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -10,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -38,9 +40,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/log").permitAll()                           
                 .antMatchers("/api/auth/login").permitAll()   
                 .antMatchers("/api/dominio/environment").permitAll()   
-                .antMatchers("/api/meeting/**").permitAll()                           
+                .antMatchers("/api/meeting/").permitAll()   
+                .antMatchers("/api/meeting").permitAll()   
+                .antMatchers("/api/**").permitAll()   
                 // All other request need to be authenticated
-                .anyRequest().authenticated().and();
+                .anyRequest().authenticated().and()
+                .addFilterBefore(new SimpleCorsFilter(), ChannelProcessingFilter.class);
     }
 
     @Override

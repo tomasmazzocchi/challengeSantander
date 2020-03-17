@@ -1,1 +1,19 @@
-<section ui-view="content-main" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0 h-100" class="overflow-auto" autoscroll="false"></section>
+<div id="sidebar">
+    <uib-accordion close-others="oneAtTime" slimscroll="{height: '100%'}">
+
+        <uib-accordion-group is-open="status.isFirstOpen">
+            <uib-accordion-heading>
+                MODULOS <i class="pull-right fa fa-angle-up" ng-class="{'fa-angle-up': parent.status.isFirstOpen, 'fa-angle-down': !parent.status.isFirstOpen}"></i>
+            </uib-accordion-heading>
+            <ul id="navigation" nav-collapse ripple>
+                <li ui-sref-active="active">
+                    <a ui-sref="app.main.challengeSantander.bienvenida">
+                        <fa name="users"></fa>
+                        <span>Meeting</span>
+                    </a>
+                </li>
+            </ul>
+        </uib-accordion-group>
+    </uib-accordion>
+</div>
+<section ui-view="content-main" id="content" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-0" class="overflow-auto" autoscroll="false"></section>

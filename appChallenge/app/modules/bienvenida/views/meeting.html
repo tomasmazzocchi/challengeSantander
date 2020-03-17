@@ -1,4 +1,4 @@
-<div class="page bckg-white-full col-xs-12 col-sm-12 col-md-12 col-lg-12 h-100">
+<div class="page bckg-white-full col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class="tile-header dvd dvd-btm h-5"> 
         <h3 class="custom-font"><strong>Meetings</strong></h3>
     </div>  
@@ -6,25 +6,25 @@
         <table class="table table-custom b-b b-0 col-md-12" >
             <thead class="">
                 <tr class="">
-                    <th class="col-md-4">Nombre Vacuna</th>
+                    <th class="col-md-4">Lugar</th>
                     <th class="col-md-1-5">Fecha</th>
-                    <th class="col-md-2">Estado</th>
-                    <th class="col-md-3">Profesional</th>
+                    <th class="col-md-2">Temperatura</th>
+                    <th class="col-md-3"></th>
                 </tr>       
             </thead>
             <tbody>
-                <tr >
+                <tr ng-repeat="m in listaMeetings">
                     <td>
-                        <span class="pl-10 text-bold text-capitalize"></span>
+                        <span class="pl-10 text-bold text-capitalize">{{m.lugar}}</span>
                     </td>
                     <td>
-                        <span class="pl-10 text-capitalize">Sin especificar</span>
+                        <span class="pl-10 text-capitalize">{{m.fecha | amDateFormat:'DD MMMM YYYY'}}</span>
                     </td>
                     <td>
-                        <span class="pl-10">Administrada</span>
+                        <span class="pl-10">{{m.temperatura}} °C</span>
                     </td>
                     <td>
-                        <span class="pl-10">aaaa</span>
+                        <button class="btn btn-primary" ng-click="verInvitados(m)">Invitados</button>
                     </td>
                 </tr> 
             </tbody>

@@ -1,0 +1,22 @@
+<!--No renderiza bien por debajo de 1200 px de ancho.-->
+<div class="page-datatables bckg-white-full h-100">
+    <div class="pagecontent h-100">
+        <section class="tile h-100" fullscreen="isFullscreen01">
+            <div class="tile-header dvd dvd-btm h-15"> 
+                <h1 class="custom-font"><strong>Lista</strong> invitados</h1>
+            </div>            
+            <form name="formulario" class="tile-body p-0 h-75">                
+                <div class="h-90 overflow-auto overflow-hidden-x">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" ng-repeat="p in listaParticipantes">
+                    <fa name="user"></fa><span><b>{{p.nombre}}</b>, {{p.apellido}}</span>
+                </div>                
+                </div>                
+                <div class="h-10">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 dvd dvd-top text-right p-10 bg-grisFooter pt-30"> 
+                        <button type="button" class="btn btn-second-primary mb-10 mr-20" ng-click="cerrarModal()">Cancelar</button>
+                    </div>    
+                </div>    
+            </form>
+        </section>
+    </div>
+</div>

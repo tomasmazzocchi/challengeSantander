@@ -12,7 +12,7 @@ angular.module('app')
                         nombreCompleto: null,
                         nombreUsuario: null,
                         imagen: null,
-                        id: null,
+                        id: null
                     },
                     path: {
                         name: null,
@@ -64,7 +64,7 @@ angular.module('app')
                             nombreCompleto: null,
                             nombreUsuario: null,
                             imagen: null,
-                            id: null,
+                            id: null
                         },
                         path: {
                             name: null,

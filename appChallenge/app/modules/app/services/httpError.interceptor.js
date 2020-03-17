@@ -18,6 +18,7 @@ angular.module('app').factory('HttpErrorInterceptor', function ($q, $rootScope, 
                 var toastr = $injector.get('toastr');                                           
                 var toastrConfig = $injector.get('toastrConfig');                                           
                 angular.extend(toastrConfig, { positionClass: "toast-top-right" });
+                    debugger;
                 switch (response.status) {
                     case -1 : 
                     angular.extend(toastrConfig, {  positionClass: "toast-top-full-width" });
