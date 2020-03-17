@@ -76,10 +76,8 @@ angular.module('app')
                         .withDisplayLength(20);
 
                 $rootScope.dtOptionsReduced = opcionesTablaReducida;
-                $rootScope.dtOptionsIndi = opcionesTablaIndicaciones;
                 $rootScope.dtOptions = opcionesTabla;
                 $rootScope.dtOptionsResumen = opcionesTablaResumen;
-                $rootScope.dtOptionsResumenScroll = opcionesTablaResumenScroll;
                 window.$.fn.dataTable.moment( 'DD MMM YYYY' );
                 
             })

@@ -1,2 +1,1 @@
 ApplicationConfiguration.registerModule('app');
-//ajaja

@@ -1,9 +1,0 @@
-{
-	"endpoint" : {
-		"url": "",
-                "envContext": "../wssZEP/api/dominio/environment"
-	},
-        "oid": "",
-        "loginPath" : "",
-        "loginType" : ""
-}

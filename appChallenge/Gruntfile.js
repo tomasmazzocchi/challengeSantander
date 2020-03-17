@@ -510,15 +510,6 @@ module.exports = function (grunt) {
     },
         // Plugin for dynamic generation of angular constant and value modules.
         ngconstant: {                        
-            test: {
-                options: {
-                name: 'environment',
-                dest: '<%= yeoman.app %>/modules/environment/config/environment.js'
-                },
-                constants: {
-                    'ENV': grunt.file.readJSON('environments/test.json')
-                }
-            },            
             local: {
                 options: {
                 name: 'environment',
@@ -526,15 +517,6 @@ module.exports = function (grunt) {
             },
                 constants: {
                     'ENV': grunt.file.readJSON('environments/local.json')
-                }
-            },
-            prod: {
-             options: {
-                name: 'environment',
-                dest: '<%= yeoman.app %>/modules/environment/config/environment.js'
-            },
-                constants: {
-                    'ENV': grunt.file.readJSON('environments/prod.json')
                 }
             }
         },
@@ -545,7 +527,7 @@ module.exports = function (grunt) {
                     war_verbose: true,
                     war_name: 'challengeSantander',
                     webxml_welcome: 'index.html',
-                    webxml_display_name: 'challengeSantander'
+                    webxml_display_name: 'challenge'
                 },
                 files: [
                     {
@@ -562,7 +544,7 @@ module.exports = function (grunt) {
                     war_verbose: true,
                     war_name: 'challengeSantander',
                     webxml_welcome: 'index.html',
-                    webxml_display_name: 'challengeSantander'
+                    webxml_display_name: 'challenge'
                 },
                 files: [
                     {
@@ -586,33 +568,7 @@ module.exports = function (grunt) {
                         '<%= yeoman.app %>/modules/webApi/js/app/userProfile.js'],
             dest: '<%= yeoman.dist %>/webApi/angularWebApi.js'
             }
-  },
-  template: {
-      test : {
-                       options: {
-					data: {
-				'angularWebApi': "<script src='http://caba-mf-app.hospitalitaliano.net:28085/wssItalite/resources/js/angularWebApi.js'></script>",
-                                'modulesWebApi': "<script src='http://caba-mf-app.hospitalitaliano.net:28085/wssItalite/resources/js/webApiModules.js'></script>"
-					}
-				},
-				files: {
-					'<%= yeoman.dist %>/index.html': ['dist/index.html']
-				}
-			
-                    },
-        prod : {
-                          
-                    options: {
-                            data: {
-                                    'angularWebApi': "<script src='http://prod-mf:28050/wssItalite/resources/js/angularWebApi.js'></script>",
-                                    'modulesWebApi': "<script src='http://prod/wssItalite/resources/js/webApiModules.js'></script>"
-                            }
-                    },
-                    files: {
-                            '<%= yeoman.dist %>/index.html': ['dist/index.html']
-                    }
-            }                    
- }
+  }
   /*
         coffee: {
       lib: {
@@ -642,12 +598,7 @@ module.exports = function (grunt) {
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
-    } else if (target === 'test') {
-            return grunt.task.run(['buildTest', 'connect:dist:keepalive']);
-        }
-        else if (target === 'prod') {
-            return grunt.task.run(['buildProd', 'connect:dist:keepalive']);
-        }        
+    }        
 
     grunt.task.run([
       'clean:server',
@@ -696,51 +647,6 @@ module.exports = function (grunt) {
     'cdnify',
     'usemin',
     'htmlmin' 
-  ]);
-  
-  grunt.registerTask('buildTest', [
-    'clean:dist',
-    'ngconstant:test',
-    'wiredep',    
-    'useminPrepare',    
-    'sass',       
-    'concat:generated',     
-    'concat:angular',    
-    'cssmin:generated',       
-  // 'uglify',
-    'filerev',           
-    'autoprefixer',                
-    'imagemin',  
-    'ngAnnotate',
-    'copy:dist',
-    'cdnify',
-    'usemin',    
-    'template:test',
-    /*'htmlmin',
-    'htmlhintplus',*/
-    'war:test'
-  ]);
-  
-  grunt.registerTask('buildProd', [
-    'clean:dist',
-    'ngconstant:prod',
-    'wiredep',    
-    'useminPrepare',    
-    'sass',   
-    'concat:generated',                
-    'cssmin:generated',
-    'uglify',    
-    'filerev',        
-    'concurrent:dist',
-    'autoprefixer',                
-    'imagemin',  
-    'ngAnnotate',
-    'copy:dist',
-    'cdnify',
-    'usemin',
-    'htmlmin',
-    'htmlhintplus',
-    'war:prod'
   ]);
   
    grunt.registerTask('buildWebApi', [    

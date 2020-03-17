@@ -8,13 +8,9 @@
         </group>
         <group name="ZEP"/>
         <group>
-            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/main/controllers/challengeSantanderController.js</file>
-            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/Gruntfile.js</file>
             <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/main/config/routes.js</file>
             <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/login/config/routes.js</file>
-            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/index.html</file>
-            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/main/controllers/nav.js</file>
-            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/app/config/route.js</file>
+            <file>file:/C:/Users/tomas/Documents/NetBeansProjects/challengeSantander/appChallenge/app/modules/bienvenida/views/bienvenida.html</file>
         </group>
     </open-files>
 </project-private>

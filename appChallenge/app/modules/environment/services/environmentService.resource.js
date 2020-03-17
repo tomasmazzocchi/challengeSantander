@@ -11,7 +11,6 @@ angular.module('environment')
         }
 
         function getEnv(){           
-            debugger;
             return $http.get(ENV.endpoint.envContext).then(function(config){               
                         setEnv(config.data);
                         return config.data; 
