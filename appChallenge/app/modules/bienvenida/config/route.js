@@ -14,9 +14,9 @@ angular.module('bienvenida')
                         .state('app.main.challengeSantander.bienvenida', {
                             url: '/principal',
                             views: {
-                                "content-mainZEP": {
-                                    templateUrl: 'modules/bienvenida/views/bienvenida.html',
-                                    controller: 'BienvenidaController'
+                                "content-main": {
+                                    templateUrl: 'modules/bienvenida/views/meeting.html',
+                                    controller: 'meetingController'
                                 }
                             }
                         });

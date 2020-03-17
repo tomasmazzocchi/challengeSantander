@@ -1,6 +1,6 @@
 'use strict';
 angular.module('main')
-  .controller('challengeSantander', function ($scope, $uibModal, ENV, $timeout, $state, $window) {
+  .controller('challengeSantanderController', function ($scope, $uibModal, ENV, $timeout, $state, $window) {
 //            $scope.loginType = ENV.loginType;
 //            $scope.usuario = datosUsr;
 //            $scope.dominio = UserProfileService.getDominio();

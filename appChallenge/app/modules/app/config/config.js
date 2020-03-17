@@ -77,6 +77,7 @@ angular.module('app')
 
                 $rootScope.dtOptionsReduced = opcionesTablaReducida;
                 $rootScope.dtOptions = opcionesTabla;
+                $rootScope.dtOptionsMeetings = opcionesTablaMeetings;
                 $rootScope.dtOptionsResumen = opcionesTablaResumen;
                 window.$.fn.dataTable.moment( 'DD MMM YYYY' );
                 
