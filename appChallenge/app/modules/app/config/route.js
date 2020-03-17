@@ -14,12 +14,7 @@ angular.module('app').config(['$stateProvider',
                     url: '',
                     abstract: true,
                     template: '<div ui-view></div>',
-                    controller: 'ApplController',
-                    resolve : { 
-                                environmentDetails : function(EnvironmentResource){                                    
-                                               return EnvironmentResource.getEnv() ;                                            
-                                }
-                            }
+                    controller: 'ApplController'
                 });
     }
 ]);

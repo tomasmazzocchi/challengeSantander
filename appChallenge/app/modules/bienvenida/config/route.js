@@ -11,7 +11,7 @@ angular.module('bienvenida')
         .config(['$stateProvider', '$urlRouterProvider',
             function ($stateProvider) {
                 $stateProvider
-                        .state('app.main.zepMain.bienvenida', {
+                        .state('app.main.challengeSantander.bienvenida', {
                             url: '/principal',
                             views: {
                                 "content-mainZEP": {

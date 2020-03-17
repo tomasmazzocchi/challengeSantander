@@ -15,7 +15,7 @@ angular.module('login')
             $stateProvider
                     .state('app.loginPrincipal', {
                         url: '',
-                        templateUrl: 'modules/login/views/principalLogin.html',
+                        templateUrl: 'modules/login/views/principal.html',
                         abstract: true,
                         resolve: {
                             environmentDetails: function (ENV) {
@@ -26,16 +26,11 @@ angular.module('login')
                     .state('app.loginPrincipal.login', {
                         url: '/login',
                         views: {
-                            "view-login": {
-                                templateUrl: 'modules/login/views/login.html',
+                            "view-main": {
+                                templateUrl: 'modules/login/views/meeting.html',
                                 controller: 'LoginController'
                             }
                         }
-                    })
-                    .state('app.locked', {
-                        url: '/locked',
-                        templateUrl: 'modules/login/views/locked.html',
-                        controller: 'LockedController'
                     })
                    ;
           
