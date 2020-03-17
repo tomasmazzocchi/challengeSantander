@@ -1,5 +1,5 @@
 # challengeSantander
-#Con respecto al frontend, por un tema de tiempos, arme la estructura de como lo utilizo actualmente.
+#Con respecto al frontend, por un tema de tiempos, arme la estructura de como lo utilizo actualmente. En el que utilizo state de angularJs para redirigir de un módulo hacia otro.
 #
 #Run:
 #   Para poder levantar el proyecto front, utilizo la tarea Grunt Serve la cuál corre un servidor de aplicacion glassfish 4 en este caso que cuenta con las propiedades del endpoint del backend y el JDBC con la conexión a la base de datos.
