@@ -9,6 +9,7 @@
 #     ../mycompany/wsschallengesantander/client
 #     ../mycompany/wsschallengesantander/observer
 #     ../mycompany/wsschallengesantander/utils
+#     ..src/test/java/testUnitarios
 #
 # Por una cuestión de performance decidí mapear la herencia de Usuario a través de una "única tabla" en la cual diferenciaría al tipo de Usuario por medio di un flag como puede ser un CHAR TIPO_USUARIO.
 # Con respecto a la API del tiempo arme un Client el cual utiliza @Autowired de RestTemplateRequest con el que en caso de ser necesario se agregan los headers que requiera el servicio y realizó la petición. Decidí utilizar la API desde el back-end por seguridad, evitando que quede expuesta en el front.
